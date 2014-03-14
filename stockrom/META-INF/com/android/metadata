@@ -1,0 +1,3 @@
+post-build=tmous/htc_rider/rider:4.0.3/IML74K/356011.14:user/release-keys
+post-timestamp=1392460245
+pre-device=rider
