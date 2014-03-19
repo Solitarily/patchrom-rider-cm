@@ -1392,35 +1392,6 @@
     :catch_0
     move-exception v0
 
-    .line 770
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public getCountryCode()Ljava/lang/String;
-    .locals 2
-
-    .prologue
-    .line 822
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->getCountryCode()Ljava/lang/String;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 824
-    :goto_0
-    return-object v1
-
-    .line 823
-    :catch_0
-    move-exception v0
-
     .line 824
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
@@ -1514,44 +1485,6 @@
     return-object v1
 
     .line 781
-    :catch_0
-    move-exception v0
-
-    .line 782
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public getSupportedChannels()Ljava/util/List;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/net/wifi/WifiChannel;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 893
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->getSupportedChannels()Ljava/util/List;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 895
-    :goto_0
-    return-object v1
-
-    .line 894
     :catch_0
     move-exception v0
 
@@ -1813,30 +1746,37 @@
     goto :goto_0
 .end method
 
-.method public isIbssSupported()Z
-    .locals 2
+.method public isMiWifi()Z
+    .locals 3
 
     .prologue
     .line 880
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
+    invoke-virtual {p0}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->isIbssSupported()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v0
+
+    .local v0, wifiInfo:Landroid/net/wifi/WifiInfo;
+    if-eqz v0, :cond_0
+
+    const-string v1, "XIAOMI_ROUTER"
+
+    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getVendorInfo()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
     .line 882
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x1
+
     :goto_0
     return v1
 
-    .line 881
-    :catch_0
-    move-exception v0
-
-    .line 882
-    .local v0, e:Landroid/os/RemoteException;
+    :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
