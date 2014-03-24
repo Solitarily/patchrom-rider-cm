@@ -3963,6 +3963,72 @@
     return-void
 .end method
 
+.method private checkInstallerFromXiaomi(I)I
+    .locals 7
+    .parameter "uid"
+
+    .prologue
+    const/4 v4, 0x0
+
+    const-string v2, "com.android.packageinstaller"
+
+    .local v2, INSTALL_FROM_PACKAGEINSTALLER:Ljava/lang/String;
+    const-string v0, "com.xiaomi.gamecenter"
+
+    .local v0, INSTALL_FROM_GAMECENTER:Ljava/lang/String;
+    const-string v1, "com.xiaomi.market"
+
+    .local v1, INSTALL_FROM_MARKET:Ljava/lang/String;
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/PackageManagerService;->getPackagesForUid(I)[Ljava/lang/String;
+
+    move-result-object v3
+
+    .local v3, packages:[Ljava/lang/String;
+    if-eqz v3, :cond_1
+
+    array-length v5, v3
+
+    const/4 v6, 0x1
+
+    if-ne v5, v6, :cond_1
+
+    const-string v5, "com.android.packageinstaller"
+
+    aget-object v6, v3, v4
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    const-string v5, "com.xiaomi.gamecenter"
+
+    aget-object v6, v3, v4
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    const-string v5, "com.xiaomi.market"
+
+    aget-object v6, v3, v4
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    :cond_0
+    const/16 v4, 0x100
+
+    :cond_1
+    return v4
+.end method
+
 .method private checkPermissionTreeLP(Ljava/lang/String;)Lcom/android/server/pm/BasePermission;
     .locals 4
     .parameter "permName"
@@ -7003,7 +7069,7 @@
     :try_start_2
     sget-object v4, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    :goto_1
+    :goto_2
     const/4 v5, 0x1
 
     const/high16 v2, 0x1
@@ -7086,7 +7152,7 @@
 
     iget v2, v7, Lcom/android/server/pm/PackageManagerService$PackageRemovedInfo;->removedAppId:I
 
-    :goto_2
+    :goto_3
     invoke-virtual {v11, v3, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 8298
@@ -7220,7 +7286,7 @@
 
     invoke-direct {v4, v2}, Landroid/os/UserHandle;-><init>(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     .line 8287
     :catchall_1
@@ -7238,7 +7304,7 @@
     :cond_7
     iget v2, v7, Lcom/android/server/pm/PackageManagerService$PackageRemovedInfo;->uid:I
 
-    goto :goto_2
+    goto :goto_3
 
     .line 8320
     .end local v11           #extras:Landroid/os/Bundle;
@@ -33171,6 +33237,12 @@
 
     .local v9, user:Landroid/os/UserHandle;
     :goto_0
+    invoke-direct {p0, v11}, Lcom/android/server/pm/PackageManagerService;->checkInstallerFromXiaomi(I)I
+
+    move-result v1
+
+    or-int/2addr p3, v1
+
     const/16 v1, 0x7d0
 
     if-eq v11, v1, :cond_0

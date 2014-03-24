@@ -17,7 +17,7 @@
 # static fields
 .field static final synthetic $SwitchMap$com$android$internal$telephony$IccCardApplicationStatus$AppState:[I
 
-.field static final synthetic $SwitchMap$com$android$internal$telephony$IccCard$State:[I
+.field static final synthetic $SwitchMap$com$android$internal$telephony$IccCardConstants$State:[I
 
 
 # direct methods
@@ -25,7 +25,7 @@
     .locals 3
 
     .prologue
-    invoke-static {}, Lcom/android/internal/telephony/IccCard$State;->values()[Lcom/android/internal/telephony/IccCard$State;
+    invoke-static {}, Lcom/android/internal/telephony/IccCardConstants$State;->values()[Lcom/android/internal/telephony/IccCardConstants$State;
 
     move-result-object v0
 
@@ -33,14 +33,14 @@
 
     new-array v0, v0, [I
 
-    sput-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
+    sput-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardConstants$State:[I
 
     :try_start_0
-    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
+    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardConstants$State:[I
 
-    sget-object v1, Lcom/android/internal/telephony/IccCard$State;->ABSENT:Lcom/android/internal/telephony/IccCard$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->ABSENT:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCardConstants$State;->ordinal()I
 
     move-result v1
 
@@ -52,11 +52,11 @@
 
     :goto_0
     :try_start_1
-    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
+    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardConstants$State:[I
 
-    sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PIN_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->PIN_REQUIRED:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCardConstants$State;->ordinal()I
 
     move-result v1
 
@@ -68,11 +68,11 @@
 
     :goto_1
     :try_start_2
-    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
+    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardConstants$State:[I
 
-    sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PUK_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->PUK_REQUIRED:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCardConstants$State;->ordinal()I
 
     move-result v1
 
@@ -84,11 +84,11 @@
 
     :goto_2
     :try_start_3
-    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
+    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardConstants$State:[I
 
-    sget-object v1, Lcom/android/internal/telephony/IccCard$State;->NETWORK_LOCKED:Lcom/android/internal/telephony/IccCard$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->NETWORK_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCardConstants$State;->ordinal()I
 
     move-result v1
 
@@ -100,11 +100,11 @@
 
     :goto_3
     :try_start_4
-    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
+    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardConstants$State:[I
 
-    sget-object v1, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->READY:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCardConstants$State;->ordinal()I
 
     move-result v1
 
@@ -116,11 +116,11 @@
 
     :goto_4
     :try_start_5
-    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
+    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardConstants$State:[I
 
-    sget-object v1, Lcom/android/internal/telephony/IccCard$State;->NOT_READY:Lcom/android/internal/telephony/IccCard$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->NOT_READY:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCardConstants$State;->ordinal()I
 
     move-result v1
 
@@ -132,11 +132,11 @@
 
     :goto_5
     :try_start_6
-    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
+    sget-object v0, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardConstants$State:[I
 
-    sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PERM_DISABLED:Lcom/android/internal/telephony/IccCard$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->PERM_DISABLED:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/internal/telephony/IccCardConstants$State;->ordinal()I
 
     move-result v1
 

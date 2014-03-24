@@ -433,6 +433,7 @@
         <item>gps</item>
         <item>bluetooth</item>
         <item>bluetooth_handsfree_battery</item>
+        <item>location</item>
         <item>nfc</item>
         <item>tty</item>
         <item>speakerphone</item>

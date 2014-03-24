@@ -12,8 +12,7 @@ local-out-zip-file := MIUI_V5_4.2_rider.zip
 local-previous-target-dir := ~/workspace/ota_base/rider_4.2
 
 # All apps from original ZIP, but has smali files chanded
-#local-modified-apps := DeviceSettings Gallery2 OriginalSettings
-local-modified-apps :=
+local-modified-apps := Gallery2
 
 local-modified-jars :=
 
@@ -47,7 +46,7 @@ local-pre-zip-misc:
 	cp other/GooglePinyinIME.apk $(ZIP_DIR)/system/app/GooglePinyinIME.apk
 	cp other/RootExplorer.apk $(ZIP_DIR)/system/app/RootExplorer.apk
 	cp other/Sweep2Wake.apk $(ZIP_DIR)/system/app/Sweep2Wake.apk
-	cp other/Gallery2.apk $(ZIP_DIR)/system/app/Gallery2.apk
+	#cp other/Gallery2.apk $(ZIP_DIR)/system/app/Gallery2.apk
 	cp other/system_fonts.xml $(ZIP_DIR)/system/etc/system_fonts.xml
 	cp $(TMP_DIR)/framework_ext.jar $(ZIP_DIR)/system/framework/mms-common.jar
 	rm -rf $(ZIP_DIR)/system/framework/framework_ext.jar
