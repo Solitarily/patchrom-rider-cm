@@ -6,7 +6,7 @@
 local-zip-file     := stockrom.zip
 
 # The output zip file of MIUI rom, the default is porting_miui.zip if not specified
-local-out-zip-file := miui_rider_luomu_4.3.21.zip
+local-out-zip-file := miui_v5_rider_4.3.21.zip
 
 # the location for local-ota to save target-file
 local-previous-target-dir := ~/workspace/ota_base/rider_4.2

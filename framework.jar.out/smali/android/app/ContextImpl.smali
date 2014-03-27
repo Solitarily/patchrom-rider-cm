@@ -1233,6 +1233,39 @@
     throw v0
 .end method
 
+.method private getTopLevelResources(Landroid/app/ActivityThread;Landroid/content/res/Resources;)Landroid/content/res/Resources;
+    .locals 6
+    .parameter "mainThread"
+    .parameter "container"
+
+    .prologue
+    iget-object v0, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
+
+    iget-object v1, v0, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;
+
+    iget-object v0, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
+
+    invoke-virtual {v0}, Landroid/app/LoadedApk;->getResDir()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-virtual {p2}, Landroid/content/res/Resources;->getCompatibilityInfo()Landroid/content/res/CompatibilityInfo;
+
+    move-result-object v5
+
+    move-object v0, p1
+
+    invoke-virtual/range {v0 .. v5}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Ljava/lang/String;ILandroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method private getWallpaperManager()Landroid/app/WallpaperManager;
     .locals 1
 
@@ -1308,6 +1341,7 @@
     .locals 2
 
     .prologue
+    .line 570
     const-string/jumbo v0, "security"
 
     new-instance v1, Landroid/app/ContextImpl$SecurityServiceFetcher;
@@ -1316,6 +1350,7 @@
 
     invoke-static {v0, v1}, Landroid/app/ContextImpl;->registerService(Ljava/lang/String;Landroid/app/ContextImpl$ServiceFetcher;)V
 
+    .line 576
     return-void
 .end method
 
@@ -1384,6 +1419,7 @@
     :goto_0
     invoke-static {p0, p3}, Landroid/app/ContextImpl$Injector;->checkPriority(Landroid/app/ContextImpl;Landroid/content/IntentFilter;)V
 
+    .line 1368
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -1578,7 +1614,10 @@
 
     goto :goto_0
 
-    .line 1712
+    nop
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -7175,37 +7214,4 @@
     move-exception v1
 
     goto :goto_0
-.end method
-
-.method private getTopLevelResources(Landroid/app/ActivityThread;Landroid/content/res/Resources;)Landroid/content/res/Resources;
-    .locals 6
-    .parameter "mainThread"
-    .parameter "container"
-
-    .prologue
-    iget-object v0, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
-
-    iget-object v1, v0, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;
-
-    iget-object v0, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
-
-    invoke-virtual {v0}, Landroid/app/LoadedApk;->getResDir()Ljava/lang/String;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    invoke-virtual {p2}, Landroid/content/res/Resources;->getCompatibilityInfo()Landroid/content/res/CompatibilityInfo;
-
-    move-result-object v5
-
-    move-object v0, p1
-
-    invoke-virtual/range {v0 .. v5}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Ljava/lang/String;ILandroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    return-object v0
 .end method
