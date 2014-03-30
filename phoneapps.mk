@@ -8,6 +8,7 @@ local-phone-apps = ApplicationsProvider \
                    DrmProvider \
                    DSPManager \
                    Galaxy4 \
+                   GooglePinyinIME \
                    HoloSpiralWallpaper \
                    HTMLViewer \
                    InputDevices \
@@ -20,7 +21,9 @@ local-phone-apps = ApplicationsProvider \
                    PhaseBeam \
                    PhotoTable \
                    PicoTts \
+                   RootExplorer \
                    SharedStorageBackup \
+                   Sweep2Wake \
                    Stk \
                    UserDictionaryProvider \
                    VisualizationWallpapers \

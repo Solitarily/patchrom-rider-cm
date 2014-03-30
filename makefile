@@ -3,7 +3,7 @@
 #
 
 # The original zip file, MUST be specified by each product
-local-zip-file     := stockrom.zip
+local-zip-file := stockrom.zip
 
 # The output zip file of MIUI rom, the default is porting_miui.zip if not specified
 local-out-zip-file := miui_v5_rider_4.3.21.zip
@@ -43,9 +43,9 @@ include $(PORT_BUILD)/porting.mk
 updater := $(ZIP_DIR)/META-INF/com/google/android/updater-script
 pre_install_data_packages := $(TMP_DIR)/pre_install_apk_pkgname.txt
 local-pre-zip-misc:
-	cp other/GooglePinyinIME.apk $(ZIP_DIR)/system/app/GooglePinyinIME.apk
-	cp other/RootExplorer.apk $(ZIP_DIR)/system/app/RootExplorer.apk
-	cp other/Sweep2Wake.apk $(ZIP_DIR)/system/app/Sweep2Wake.apk
+	@echo Update boot image
+	cp other/boot.img $(ZIP_DIR)/boot.img
+	@echo Add Stock APK
 	#cp other/Gallery2.apk $(ZIP_DIR)/system/app/Gallery2.apk
 	cp other/system_fonts.xml $(ZIP_DIR)/system/etc/system_fonts.xml
 	cp $(TMP_DIR)/framework_ext.jar $(ZIP_DIR)/system/framework/mms-common.jar
