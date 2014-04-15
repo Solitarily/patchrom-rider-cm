@@ -3,16 +3,16 @@
 #
 
 # The original zip file, MUST be specified by each product
-local-zip-file := stockrom.zip
+local-zip-file     := stockrom.zip
 
 # The output zip file of MIUI rom, the default is porting_miui.zip if not specified
-local-out-zip-file := miui_v5_rider_4.3.28.zip
+local-out-zip-file := miui_v5_rider_4.4.11.zip
 
 # the location for local-ota to save target-file
 local-previous-target-dir := ~/workspace/ota_base/rider_4.2
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := Gallery2
+#local-modified-apps := Gallery2
 
 local-modified-jars :=
 
@@ -46,13 +46,14 @@ local-pre-zip-misc:
 	@echo Update boot image
 	cp other/boot.img $(ZIP_DIR)/boot.img
 	@echo Add Stock APK
-	#cp other/Gallery2.apk $(ZIP_DIR)/system/app/Gallery2.apk
+	cp other/Gallery2.apk $(ZIP_DIR)/system/app/Gallery2.apk
 	cp other/system_fonts.xml $(ZIP_DIR)/system/etc/system_fonts.xml
 	cp $(TMP_DIR)/framework_ext.jar $(ZIP_DIR)/system/framework/mms-common.jar
 	rm -rf $(ZIP_DIR)/system/framework/framework_ext.jar
 	cp other/Generic.kl $(ZIP_DIR)/system/usr/keylayout/
 	cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
+	cp -r other/theme $(ZIP_DIR)/system/media
 	rm -rf $(pre_install_data_packages)
 
 out/framework2.jar : out/framework.jar
